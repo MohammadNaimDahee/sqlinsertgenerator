@@ -1,0 +1,1270 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd"
+        logicalFilePath="/path/not/used">
+
+    <changeSet id="InsertChRulesArrival_240108_094521_1" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule(rulsid, rulsystem, rulruleid, rullevel, rultype, rulerrortype, rulerrorfield, rulmetadata, rulcreuser, rulcredat)
+            values(mic_rule_seq.nextval, 'MIC-NCTS', 'NCTSARR0062', 'ARR', 'P', 'E', 'nationalityAtDeparture' , 'Condition: Nationality at departure must not be empty' , substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_1/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_2" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'CH', '1', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_2/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_3" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'AT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_3/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_4" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'BE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_4/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_5" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'CZ', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_5/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_6" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'DE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_6/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_7" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'ES', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_7/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_8" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'FI', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_8/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_9" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'FR', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_9/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_10" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'GB', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_10/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_11" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'HU', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_11/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_12" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'IE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_12/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_13" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'IT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_13/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_14" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'NL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_14/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_15" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'PL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_15/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_16" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'SE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_16/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_17" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0062'), 'NCTSEUCDM', 'SK', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_17/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_18" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'DEU', 'NationalitÃ¤t darf nicht leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_18/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_19" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'ENG', 'Nationality must not be empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_19/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_20" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'DEU', 'NationalitÃ¤t darf nicht leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_20/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_21" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'ENG', 'Nationality must not be empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_21/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_22" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule(rulsid, rulsystem, rulruleid, rullevel, rultype, rulerrortype, rulerrorfield, rulmetadata, rulcreuser, rulcredat)
+            values(mic_rule_seq.nextval, 'MIC-NCTS', 'NCTSARR0063', 'ARR', 'P', 'E', 'identificationNumberDeparture' , 'Condition: Identification number must not be empty' , substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_22/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_23" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'CH', '1', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_23/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_24" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'AT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_24/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_25" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'BE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_25/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_26" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'CZ', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_26/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_27" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'DE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_27/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_28" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'ES', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_28/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_29" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'FI', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_29/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_30" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'FR', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_30/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_31" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'GB', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_31/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_32" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'HU', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_32/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_33" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'IE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_33/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_34" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'IT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_34/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_35" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'NL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_35/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_36" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'PL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_36/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_37" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'SE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_37/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_38" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0063'), 'NCTSEUCDM', 'SK', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_38/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_39" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'DEU', 'Identifikationsnummer darf nicht leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_39/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_40" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'ENG', 'Identification number must not be empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_40/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_41" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'DEU', 'Identifikationsnummer darf nicht leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_41/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_42" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'ENG', 'Identification number must not be empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_42/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_43" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule(rulsid, rulsystem, rulruleid, rullevel, rultype, rulerrortype, rulerrorfield, rulmetadata, rulcreuser, rulcredat)
+            values(mic_rule_seq.nextval, 'MIC-NCTS', 'NCTSARR0064', 'ARR', 'P', 'E', 'typeOfIdentification' , 'Condition: Type of Identification must not be empty' , substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_43/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_44" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'CH', '1', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_44/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_45" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'AT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_45/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_46" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'BE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_46/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_47" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'CZ', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_47/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_48" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'DE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_48/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_49" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'ES', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_49/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_50" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'FI', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_50/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_51" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'FR', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_51/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_52" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'GB', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_52/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_53" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'HU', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_53/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_54" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'IE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_54/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_55" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'IT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_55/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_56" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'NL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_56/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_57" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'PL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_57/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_58" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'SE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_58/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_59" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0064'), 'NCTSEUCDM', 'SK', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_59/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_60" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'DEU', 'Identifikationstyp darf nicht leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_60/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_61" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'ENG', 'Type of Identification must not be empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_61/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_62" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'DEU', 'Identifikationstyp darf nicht leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_62/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_63" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'ENG', 'Type of Identification must not be empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_63/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_64" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule(rulsid, rulsystem, rulruleid, rullevel, rultype, rulerrortype, rulerrorfield, rulmetadata, rulcreuser, rulcredat)
+            values(mic_rule_seq.nextval, 'MIC-NCTS', 'NCTSARR0065', 'ARR', 'P', 'E', 'goodsDeclarationStateOfSeals' , 'Condition: State of seals must be 0, 1 or empty' , substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_64/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_65" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'CH', '1', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_65/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_66" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'AT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_66/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_67" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'BE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_67/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_68" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'CZ', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_68/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_69" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'DE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_69/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_70" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'ES', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_70/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_71" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'FI', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_71/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_72" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'FR', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_72/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_73" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'GB', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_73/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_74" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'HU', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_74/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_75" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'IE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_75/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_76" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'IT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_76/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_77" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'NL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_77/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_78" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'PL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_78/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_79" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'SE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_79/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_80" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0065'), 'NCTSEUCDM', 'SK', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_80/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_81" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'DEU', 'Zustand Verschluss muss 0, 1 oder leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_81/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_82" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'ENG', 'State of seals must be 0, 1 or empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_82/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_83" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'DEU', 'Zustand Verschluss muss 0, 1 oder leer sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_83/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_84" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'ENG', 'State of seals must be 0, 1 or empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_84/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_85" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule(rulsid, rulsystem, rulruleid, rullevel, rultype, rulerrortype, rulerrorfield, rulmetadata, rulcreuser, rulcredat)
+            values(mic_rule_seq.nextval, 'MIC-NCTS', 'NCTSARR0066', 'ARR', 'P', 'E', 'name' , 'Condition: Contact person name must be filled if the contact person phone number or email is not empty' , substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_85/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_86" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'CH', '1', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_86/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_87" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'AT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_87/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_88" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'BE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_88/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_89" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'CZ', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_89/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_90" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'DE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_90/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_91" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'ES', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_91/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_92" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'FI', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_92/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_93" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'FR', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_93/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_94" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'GB', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_94/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_95" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'HU', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_95/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_96" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'IE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_96/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_97" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'IT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_97/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_98" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'NL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_98/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_99" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'PL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_99/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_100" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'SE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_100/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_101" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0066'), 'NCTSEUCDM', 'SK', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_101/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_102" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'DEU', 'Name der Kontaktperson muss befÃ¼llt sein wenn Kontaktperson E-Mail oder Telefonnummer befÃ¼llt sind', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_102/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_103" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'ENG', 'Contact person name must be filled if the contact person phone number or email is not empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_103/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_104" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'DEU', 'Name der Kontaktperson muss befÃ¼llt sein wenn Kontaktperson E-Mail oder Telefonnummer befÃ¼llt sind', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_104/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_105" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'ENG', 'Contact person name must be filled if the contact person phone number or email is not empty', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_105/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_106" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule(rulsid, rulsystem, rulruleid, rullevel, rultype, rulerrortype, rulerrorfield, rulmetadata, rulcreuser, rulcredat)
+            values(mic_rule_seq.nextval, 'MIC-NCTS', 'NCTSARR0067', 'ARR', 'P', 'E', 'referenceNumberUcr' , 'Condition: Unique Consignment Reference (UCR) must be unique' , substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_106/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_107" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'CH', '1', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_107/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_108" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'AT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_108/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_109" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'BE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_109/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_110" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'CZ', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_110/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_111" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'DE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_111/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_112" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'ES', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_112/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_113" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'FI', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_113/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_114" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'FR', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_114/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_115" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'GB', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_115/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_116" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'HU', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_116/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_117" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'IE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_117/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_118" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'IT', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_118/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_119" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'NL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_119/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_120" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'PL', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_120/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_121" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'SE', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_121/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_122" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_assignment(ruasid, ruarulsid, ruacontext, ruacountry, ruaactive, ruavalidfrom, ruacreuser, ruacredat)
+            values(mic_rule_assignment_seq.nextval, (select rulsid from mic_rule where rulsystem = 'MIC-NCTS' and rulruleid = 'NCTSARR0067'), 'NCTSEUCDM', 'SK', '0', to_date('20230101', 'yyyymmdd'), substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_122/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_123" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'DEU', 'Referenznummer (UCR) muss eindeutig sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_123/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_124" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'DSC', mic_rule_seq.currval, 'ENG', 'Unique Consignment Reference (UCR) must be unique', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_124/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_125" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'DEU', 'Referenznummer (UCR) muss eindeutig sein', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_125/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+    <changeSet id="InsertChRulesArrival_240108_094521_126" author="dpimming" failOnError="true" context="" >
+        <sql><![CDATA[
+            insert into mic_rule_translate(rutsid, rutreferencetype, rutreferencesid, rutlanguage, ruttext, rutcreuser, rutcredat)
+            values(mic_rule_translate_seq.nextval, 'ERR', mic_rule_seq.currval, 'ENG', 'Unique Consignment Reference (UCR) must be unique', substr(user, 1, 12), sysdate)
+
+                log errors into mic_dml_error_log ('MIC-NCTS/InsertChRulesArrival_240108_094521_126/' || to_char(sysdate,'YYYY-MM-DD HH24:MI'))
+                reject limit unlimited
+            ]]>
+    </sql>
+    </changeSet>
+
+</databaseChangeLog>
